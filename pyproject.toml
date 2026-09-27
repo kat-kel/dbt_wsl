@@ -1,0 +1,13 @@
+[project]
+name = "fundamentals"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "kat-kel", email = "klarinet28@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "dbt>=2.0.6",
+    "duckdb>=1.5.5",
+]

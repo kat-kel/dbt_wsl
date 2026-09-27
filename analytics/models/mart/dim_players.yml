@@ -1,0 +1,27 @@
+models:
+  - name: dim_players
+    description: Actions players performed during a match.
+    data_tests:
+      # A player can only be on 1 team
+      - unique:
+          column_name: "player_urn || '|' || current_team_urn"
+    columns:
+      - name: player_urn
+        data_tests:
+          - not_null
+          - unique
+      - name: current_team_urn
+        data_tests:
+          - not_null
+      - name: name_first
+      - name: name_last
+      - name: name_shirt
+      - name: display_name
+      - name: shirt_number
+      - name: latest_starting_position
+      - name: starts_as_striker
+      - name: starts_as_attacking_midfielder
+      - name: starts_as_defensive_midfielder
+      - name: starts_as_midfielder
+      - name: starts_as_defender
+      - name: starts_as_goalkeeper

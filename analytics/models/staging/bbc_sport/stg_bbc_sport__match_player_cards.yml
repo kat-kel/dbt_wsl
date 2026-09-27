@@ -1,0 +1,33 @@
+models:
+  - name: stg_bbc_sport__match_player_cards
+    description: Cards players were given during a match.
+    columns:
+      - name: match_id
+        description: BBC's short match ID. Foreign key.
+        data_tests:
+          - not_null
+      - name: match_urn
+        data_tests:
+          - not_null
+      - name: player_urn
+        data_tests:
+          - not_null
+      - name: team_urn
+        data_tests:
+          - not_null
+      - name: is_yellow_card
+        data_tests:
+          - not_null
+      - name: is_second_yellow
+        data_tests:
+          - not_null
+      - name: is_direct_red
+        data_tests:
+          - not_null
+      - name: regulation_time_minutes
+      - name: injury_time_minutes
+      - name: period
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]

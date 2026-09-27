@@ -1,0 +1,64 @@
+models:
+  - name: stg_bbc_sport__match_players
+    description: Team roster for a match.
+    data_tests:
+      - expression_is_true:
+          arguments:
+            # A starter can't be substituted on
+            expression: "NOT is_starter OR substituted_on_period IS NULL"
+      # A player can only be on the match roster 1 time
+      - unique:
+          column_name: "match_id || '|' || player_urn"
+    columns:
+      - name: match_id
+        description: BBC's short match ID. Foreign key.
+        data_tests:
+          - not_null
+      - name: match_urn
+        data_tests:
+          - not_null
+      - name: team_urn
+        data_tests:
+          - not_null
+      - name: player_urn
+        data_tests:
+          - not_null
+      - name: display_name
+      - name: name_first
+      - name: name_last
+      - name: name_shirt
+      - name: position
+      - name: shirt_number
+      - name: is_starter
+        data_tests:
+          - not_null
+      - name: is_captain
+        data_tests:
+          - not_null
+      - name: formation_place
+      #
+      # (starter) substituted off
+      - name: substituted_off_reason
+      - name: substituted_off_for_player
+      - name: substituted_off_period
+      - name: substituted_off_regulation_time
+      - name: substituted_off_injury_time
+      - name: raw_substituted_off_min_sec
+      - name: substituted_off_time_seconds
+        data_tests:
+          - not_null:
+              config:
+                where: "substituted_off_period is not null"
+      #
+      # (sub) sustituted on
+      - name: substituted_on_reason
+      - name: substituted_on_for_player
+      - name: substituted_on_period
+      - name: substituted_on_regulation_time
+      - name: substituted_on_injury_time
+      - name: raw_substituted_on_min_sec
+      - name: substituted_on_time_seconds
+        data_tests:
+          - not_null:
+              config:
+                where: "substituted_on_period is not null"

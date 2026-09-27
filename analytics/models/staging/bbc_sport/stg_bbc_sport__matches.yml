@@ -1,0 +1,59 @@
+models:
+  - name: stg_bbc_sport__matches
+    description: One row per match.
+    columns:
+      - name: match_id
+        description: BBC's short match ID. Primary key.
+        data_tests:
+          - unique
+          - not_null
+      - name: urn
+        data_tests:
+          - unique
+          - not_null
+      - name: start_date_time
+        data_tests:
+          - not_null
+      - name: tournament_name
+        data_tests:
+          - not_null
+      - name: tournament_urn
+        data_tests:
+          - not_null
+      - name: venue_name
+        data_tests:
+          - not_null
+      - name: venue_urn
+        data_tests:
+          - not_null
+      - name: attendance_count
+      - name: is_regular_season
+        data_tests:
+          - not_null
+      - name: full_time
+        data_tests:
+          - not_null
+      - name: home_urn
+        data_tests:
+          - not_null
+      - name: home_score_halftime
+        data_tests:
+          - not_null
+      - name: home_score_fulltime
+        data_tests:
+          - not_null
+      - name: home_points
+        data_tests:
+          - not_null
+      - name: away_urn
+        data_tests:
+          - not_null
+      - name: away_score_halftime
+        data_tests:
+          - not_null
+      - name: away_score_fulltime
+        data_tests:
+          - not_null
+      - name: away_points
+        data_tests:
+          - not_null
