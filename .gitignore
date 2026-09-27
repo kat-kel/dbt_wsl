@@ -17,4 +17,4 @@ analytics/logs/
 *.duckdb.wal
 
 # dev tooling
-Justfile
+ingestion.sql
